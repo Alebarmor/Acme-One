@@ -293,11 +293,11 @@
 	<bean name="task1" class="acme.entities.tasks.Task">
 		<property name="title" value="Hacer la cama"/>
 		<property name="startTime" value="2030/01/31 00:00"/>
-		<property name="endTime" value="2030/02/31 00:00"/>
+		<property name="endTime" value="2030/02/28 00:00"/>
 		<property name="workLoad" value= "480.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="false"/>
+		
 	</bean>
 	<bean name="task2" class="acme.entities.tasks.Task">
 		<property name="title" value="Lavar os platos"/>
@@ -306,24 +306,24 @@
 		<property name="workLoad" value= "8.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="true"/>
+		
 	</bean>
-	<bean name="task2" class="acme.entities.tasks.Task">
+	<bean name="task3" class="acme.entities.tasks.Task">
 		<property name="title" value="Ir a comprar"/>
 		<property name="startTime" value="2022/01/31 00:00"/>
 		<property name="endTime" value="2022/03/01 00:00"/>
 		<property name="workLoad" value= "400.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="true"/>
+		
 	</bean>
-	<bean name="task2" class="acme.entities.tasks.Task">
+	<bean name="task4" class="acme.entities.tasks.Task">
 		<property name="title" value="Ir a comprar"/>
 		<property name="startTime" value="2022/01/31 00:00"/>
 		<property name="endTime" value="2022/02/06 00:00"/>
 		<property name="workLoad" value= "48.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="fasle"/>
+		
 	</bean>
 </beans>

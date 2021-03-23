@@ -1,7 +1,7 @@
+
 package acme.entities.tasks;
 
-import java.time.Duration;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -13,13 +13,16 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Task {
+public class Task extends DomainEntity {
+	
+	protected static final long	serialVersionUID	= 1L;
 	
 	@Length(min = 1, max = 80)
 	@NotBlank
@@ -28,12 +31,12 @@ public class Task {
 	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected LocalDateTime startTime;
+	protected Date startTime;
 	
 	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	@NotNull
-	protected LocalDateTime endTime;
+	protected Date endTime;
 	
 	@NotNull
 	protected double workLoad;
@@ -45,12 +48,6 @@ public class Task {
 	@URL
 	protected String link;
 	
-	@NotNull
-	protected boolean isPublic;
+
 	
-	
-	public Duration getExecutionPeriod() {
-		final Duration duration = Duration.between(this.startTime, this.endTime);
-		return duration;
-	}
 }
