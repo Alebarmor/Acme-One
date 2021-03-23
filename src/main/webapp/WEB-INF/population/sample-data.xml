@@ -297,7 +297,7 @@
 		<property name="workLoad" value= "480.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		
+		<property name="isPublic" value="true"/>
 	</bean>
 	<bean name="task2" class="acme.entities.tasks.Task">
 		<property name="title" value="Lavar os platos"/>
@@ -306,7 +306,7 @@
 		<property name="workLoad" value= "8.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		
+		<property name="isPublic" value="true"/>
 	</bean>
 	<bean name="task3" class="acme.entities.tasks.Task">
 		<property name="title" value="Ir a comprar"/>
@@ -315,7 +315,7 @@
 		<property name="workLoad" value= "400.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		
+		<property name="isPublic" value="true"/>
 	</bean>
 	<bean name="task4" class="acme.entities.tasks.Task">
 		<property name="title" value="Ir a comprar"/>
@@ -324,6 +324,6 @@
 		<property name="workLoad" value= "48.0"/>
 		<property name="description" value="Una Descripcion"/>
 		<property name="link" value="https://www.afoprodei.com/"/>
-		
+		<property name="isPublic" value="true"/>
 	</bean>
 </beans>

@@ -48,6 +48,13 @@ public class Task extends DomainEntity {
 	@URL
 	protected String link;
 	
-
+	
+	protected boolean isPublic;
+	
+	
+	public void setIsPublic(final boolean a) {
+		this.isPublic = a;
+		
+	}
 	
 }
