@@ -16,4 +16,7 @@ public interface AuthenticatedTaskRepository extends AbstractRepository{
 	
 	@Query("select t from Task t where t.isPublic = true")
 	Collection<Task> findManyPublic();
+
+	@Query("select t from Task t where t.id = ?1")
+	Task findOneTaskById(int id);
 }

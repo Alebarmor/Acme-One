@@ -15,11 +15,13 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
-<acme:form>
-	<acme:form-textbox code="anonymous.shout.form.label.author" path="author"/>
-	<acme:form-textarea code="anonymous.shout.form.label.text" path="text"/>
-	<acme:form-textbox code="anonymous.shout.form.label.info" path="info"/>
+<acme:form readonly="true">
+	<acme:form-textbox code="authenticated.task.form.label.title" path="title"/>
+	<acme:form-textbox	 code="authenticated.task.form.label.startTime" path="startTime"/>
+	<acme:form-textbox code="authenticated.task.form.label.endTime" path="endTime"/>
+	<acme:form-textbox code="authenticated.task.form.label.workload" path="workload"/>
+	<acme:form-textarea code="authenticated.task.form.label.description" path="description"/>
+	<acme:form-url code="authenticated.task.form.label.info" path="info"/>
 	
-	<acme:form-submit code="anonymous.shout.form.button.create" action="/anonymous/shout/create"/>
-  	<acme:form-return code="anonymous.shout.form.button.return"/>
+  	<acme:form-return code="authenticated.task.form.button.return"/>
 </acme:form>
