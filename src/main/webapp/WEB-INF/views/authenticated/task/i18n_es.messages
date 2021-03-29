@@ -18,4 +18,5 @@ authenticated.task.form.label.info = Información adicional:
 authenticated.task.form.button.return = Volver
 
 authenticated.task.list.label.title = Título
+authenticated.task.list.label.executionPeriod = Periodo de ejecución
 authenticated.task.list.label.workload = Carga de trabajo
