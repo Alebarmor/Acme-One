@@ -33,7 +33,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "startTime", "endTime", "workload", "description", "info");		
+		request.unbind(entity, model, "title", "executionPeriod", "workload", "description", "info");		
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneTaskByIdFinished(id);
+		result = this.repository.findOneTaskById(id);
 
 		return result;
 	}

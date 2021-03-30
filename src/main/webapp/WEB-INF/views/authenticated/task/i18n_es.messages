@@ -9,8 +9,7 @@
 # they accept any liabilities with respect to them.
 
 authenticated.task.form.label.title = Título:
-authenticated.task.form.label.startTime = Fecha inicio:
-authenticated.task.form.label.endTime = Fecha fin:
+authenticated.task.form.label.executionPeriod = Período de ejecución:
 authenticated.task.form.label.workload = Carga de trabajo:
 authenticated.task.form.label.description = Descripción:
 authenticated.task.form.label.info = Información adicional:

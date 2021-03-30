@@ -292,8 +292,8 @@
 	<!-- Tasks -->
 	<bean name="task01" class="acme.entities.tasks.Task">
 		<property name="title" value="Play Dark Souls Remastered"/>
-		<property name="startTime" value="2021/03/30 20:00"/>
-		<property name="endTime" value="2021/03/30 22:45"/>
+		<property name="startTime" value="2021/03/30 11:19"/>
+		<property name="endTime" value="2021/03/30 11:20"/>
 		<property name="description" value="I love the reign of Lordran"/>
 		<property name="info" value="https://web.archive.org/web/20110205223704/http://www.fromsoftware.jp/darksouls/"/>
 		<property name="isPublic" value="true"/>
