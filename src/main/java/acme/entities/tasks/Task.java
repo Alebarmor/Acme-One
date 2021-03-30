@@ -3,6 +3,8 @@ package acme.entities.tasks;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -62,7 +64,13 @@ public class Task extends DomainEntity {
 	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60);
 	}
 	
-	
+	@Transient
+	public String getExecutionPeriod() {
+		final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
+		final String strDate = dateFormat.format(this.startTime);  
+		final String endDate = dateFormat.format(this.endTime); 
+		return strDate + " - " + endDate;
+	}
 	// Auxiliar methods
 	
 	public static double round(final double value, final int places) {
