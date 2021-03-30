@@ -290,40 +290,36 @@
 	</bean>
 	
 	<!-- Tasks -->
-	<bean name="task1" class="acme.entities.tasks.Task">
-		<property name="title" value="Hacer la cama"/>
-		<property name="startTime" value="2030/01/31 00:00"/>
-		<property name="endTime" value="2030/02/28 00:00"/>
-		<property name="workLoad" value= "480.0"/>
-		<property name="description" value="Una Descripcion"/>
-		<property name="link" value="https://www.afoprodei.com/"/>
+	<bean name="task01" class="acme.entities.tasks.Task">
+		<property name="title" value="Play Dark Souls Remastered"/>
+		<property name="startTime" value="2021/03/30 11:19"/>
+		<property name="endTime" value="2021/03/30 11:20"/>
+		<property name="description" value="I love the reign of Lordran"/>
+		<property name="info" value="https://web.archive.org/web/20110205223704/http://www.fromsoftware.jp/darksouls/"/>
 		<property name="isPublic" value="true"/>
 	</bean>
-	<bean name="task2" class="acme.entities.tasks.Task">
-		<property name="title" value="Lavar os platos"/>
-		<property name="startTime" value="2022/01/31 00:00"/>
-		<property name="endTime" value="2022/02/01 00:00"/>
-		<property name="workLoad" value= "8.0"/>
-		<property name="description" value="Una Descripcion"/>
-		<property name="link" value="https://www.afoprodei.com/"/>
+	<bean name="task02" class="acme.entities.tasks.Task">
+		<property name="title" value="Do the dishes"/>
+		<property name="startTime" value="2021/04/05 12:00"/>
+		<property name="endTime" value="2021/04/05 12:15"/>
+		<property name="description" value="I don't want..."/>
+		<property name="info" value="https://www.bosch-home.es/"/>
+		<property name="isPublic" value="false"/>
+	</bean>
+	<bean name="task03" class="acme.entities.tasks.Task">
+		<property name="title" value="Study biology"/>
+		<property name="startTime" value="2021/04/03 11:30"/>
+		<property name="endTime" value="2021/04/03 13:00"/>
+		<property name="description" value="I'm a mad scientist"/>
+		<property name="info"><null/></property>
 		<property name="isPublic" value="true"/>
 	</bean>
-	<bean name="task3" class="acme.entities.tasks.Task">
-		<property name="title" value="Ir a comprar"/>
-		<property name="startTime" value="2022/01/31 00:00"/>
-		<property name="endTime" value="2022/03/01 00:00"/>
-		<property name="workLoad" value= "400.0"/>
-		<property name="description" value="Una Descripcion"/>
-		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="true"/>
-	</bean>
-	<bean name="task4" class="acme.entities.tasks.Task">
-		<property name="title" value="Ir a comprar"/>
-		<property name="startTime" value="2022/01/31 00:00"/>
-		<property name="endTime" value="2022/02/06 00:00"/>
-		<property name="workLoad" value= "48.0"/>
-		<property name="description" value="Una Descripcion"/>
-		<property name="link" value="https://www.afoprodei.com/"/>
-		<property name="isPublic" value="true"/>
+	<bean name="task04" class="acme.entities.tasks.Task">
+		<property name="title" value="Do excercice"/>
+		<property name="startTime" value="2021/04/08 14:00"/>
+		<property name="endTime" value="2021/04/08 16:00"/>
+		<property name="description" value="Getting power!"/>
+		<property name="info"><null/></property>
+		<property name="isPublic" value="false"/>
 	</bean>
 </beans>

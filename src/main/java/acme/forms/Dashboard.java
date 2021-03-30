@@ -1,5 +1,5 @@
 /*
- * Dashboard.java
++ * Dashboard.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
  *
@@ -33,6 +33,16 @@ public class Dashboard implements Serializable {
 	Double						ratioOfPendingApplications;
 	Double						ratioOfAcceptedApplications;
 	Double						ratioOfRejectedApplications;
+	
+	Integer						numberOfTasksPublic;
+	Integer						numberOfTasksPrivate;
+	Integer						numberOfTasksFinished;
+	Integer						numberOfTasksUnfinished;
+	
+	Double						averageWorkload;
+	Double						deviationWorkload;
+	Double						maximumWorkload;
+	Double						minimumWorkload;
 
 	// Derived attributes -----------------------------------------------------
 

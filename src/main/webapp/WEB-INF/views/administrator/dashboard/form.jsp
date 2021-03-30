@@ -46,7 +46,71 @@
 		<td>
 			<acme:print value="${avegageNumberOfApplicationsPerEmployer}"/>
 		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-public"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksPublic}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-private"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksPrivate}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-finished"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksFinished}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-unfinished"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksUnfinished}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.average-workload"/>
+		</th>
+		<td>
+			<acme:print value="${averageWorkload}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviation-workload"/>
+		</th>
+		<td>
+			<acme:print value="${deviationWorkload}"/>
+		</td>
 	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maximum-workload"/>
+		</th>
+		<td>
+			<acme:print value="${maximumWorkload}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minimum-workload"/>
+		</th>
+		<td>
+			<acme:print value="${minimumWorkload}"/>
+		</td>
+	</tr>		
 </table>
 
 <h2>

@@ -15,4 +15,14 @@ administrator.dashboard.form.label.average-number-jobs-employer =  Número medio
 administrator.dashboard.form.label.average-number-applications-worker =  Número medio de solicitudes por trabajador
 administrator.dashboard.form.label.average-number-applications-employer = Número medio de solicitudes por empleador
 
+administrator.dashboard.form.label.total-number-task-public = Número de tareas públicas
+administrator.dashboard.form.label.total-number-task-private = Número de tareas privadas
+administrator.dashboard.form.label.total-number-task-finished = Número de tareas finalizadas
+administrator.dashboard.form.label.total-number-task-unfinished = Número de tareas sin finalizar
+
+administrator.dashboard.form.label.average-workload = Carga de trabajo media
+administrator.dashboard.form.label.deviation-workload = Desviación estándar de la carga de trabajo
+administrator.dashboard.form.label.maximum-workload = Carga de trabajo máxima
+administrator.dashboard.form.label.minimum-workload = Carga de trabajo mínima
+
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
