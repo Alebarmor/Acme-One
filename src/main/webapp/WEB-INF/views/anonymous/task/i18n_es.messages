@@ -9,14 +9,15 @@
 # they accept any liabilities with respect to them.
 
 anonymous.task.list.label.title = Título
-anonymous.task.list.label.workload = Carga de trabajo:
-anonymous.task.list.label.executionPeriod = Periódo de Ejecución
+anonymous.task.list.label.workload = Carga de trabajo (en horas)
+anonymous.task.list.label.startTime = Momento de inicio
+anonymous.task.list.label.endTime = Momento de fin
 
 
 anonymous.task.form.label.title = Título:
-anonymous.task.form.label.startTime = Comienzo:
-anonymous.task.form.label.endTime = Fin:
-anonymous.task.form.label.workload = Carga de trabajo:
+anonymous.task.form.label.startTime = Momento de inicio:
+anonymous.task.form.label.endTime = Momento de fin:
+anonymous.task.form.label.workload = Carga de trabajo (en horas):
 anonymous.task.form.label.description = Descripción:
 anonymous.task.form.label.info = Información adicional:
 
