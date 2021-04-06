@@ -34,7 +34,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "workload");
+		request.unbind(entity, model, "title", "startTime", "endTime", "workload");
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 
 		Collection<Task> result;
 
-		result = this.repository.findManyPublic();
+		result = this.repository.findManyPublicFinished();
 
 		return result;
 	}

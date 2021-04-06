@@ -290,36 +290,40 @@
 	</bean>
 	
 	<!-- Tasks -->
-	<bean name="task1" class="acme.entities.tasks.Task">
-		<property name="title" value="Play Dark Souls Remastered"/>
-		<property name="startTime" value="2030/01/31 23:00"/>
-		<property name="endTime" value="2030/02/01 05:30"/>
-		<property name="description" value="I love the reign of Lordran"/>
-		<property name="info" value="https://web.archive.org/web/20110205223704/http://www.fromsoftware.jp/darksouls/"/>
-		<property name="isPublic" value="true"/>
-	</bean>
-	<bean name="task2" class="acme.entities.tasks.Task">
-		<property name="title" value="Do the dishes"/>
-		<property name="startTime" value="2022/01/31 12:00"/>
-		<property name="endTime" value="2022/01/31 12:15"/>
-		<property name="description" value="I don't want..."/>
-		<property name="info" value="https://www.bosch-home.es/"/>
-		<property name="isPublic" value="false"/>
-	</bean>
-	<bean name="task3" class="acme.entities.tasks.Task">
-		<property name="title" value="Study biology"/>
-		<property name="startTime" value="2022/02/20 11:30"/>
-		<property name="endTime" value="2022/02/20 13:00"/>
-		<property name="description" value="I'm a mad scientist"/>
-		<property name="info"><null/></property>
-		<property name="isPublic" value="true"/>
-	</bean>
-	<bean name="task4" class="acme.entities.tasks.Task">
-		<property name="title" value="Do excercice"/>
-		<property name="startTime" value="2022/02/06 14:00"/>
-		<property name="endTime" value="2022/02/06 16:00"/>
-		<property name="description" value="Getting power!"/>
-		<property name="info"><null/></property>
-		<property name="isPublic" value="false"/>
-	</bean>
+	    <bean name="task01" class="acme.entities.tasks.Task">
+        <property name="title" value="Play Dark Souls Remastered"/>
+        <property name="startTime" value="2021/04/30 11:20"/>
+        <property name="endTime" value="2021/04/30 15:20"/>
+        <property name="workload" value="2.5"/>
+        <property name="description" value="I love the reign of Lordran"/>
+        <property name="info" value="https://web.archive.org/web/20110205223704/http://www.fromsoftware.jp/darksouls/"/>
+        <property name="isPublic" value="true"/>
+    </bean>
+    <bean name="task02" class="acme.entities.tasks.Task">
+        <property name="title" value="Do the dishes"/>
+        <property name="startTime" value="2021/04/08 12:00"/>
+        <property name="endTime" value="2021/04/08 12:15"/>
+        <property name="workload" value="0.25"/>
+        <property name="description" value="I don't want..."/>
+        <property name="info" value="https://www.bosch-home.es/"/>
+        <property name="isPublic" value="false"/>
+    </bean>
+    <bean name="task03" class="acme.entities.tasks.Task">
+        <property name="title" value="Study biology"/>
+        <property name="startTime" value="2021/04/10 11:30"/>
+        <property name="endTime" value="2021/04/13 13:00"/>
+        <property name="workload" value="1.15"/>
+        <property name="description" value="I'm a mad scientist"/>
+        <property name="info"><null/></property>
+        <property name="isPublic" value="true"/>
+    </bean>
+    <bean name="task04" class="acme.entities.tasks.Task">
+        <property name="title" value="Do excercice"/>
+        <property name="startTime" value="2021/04/08 14:00"/>
+        <property name="endTime" value="2021/04/08 16:00"/>
+        <property name="workload" value="1.8"/>
+        <property name="description" value="Getting power!"/>
+        <property name="info"><null/></property>
+        <property name="isPublic" value="false"/>
+    </bean>
 </beans>

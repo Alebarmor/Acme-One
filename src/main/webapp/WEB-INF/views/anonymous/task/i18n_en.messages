@@ -10,13 +10,14 @@
 
 
 anonymous.task.list.label.title = Title
-anonymous.task.list.label.workload = Workload
-anonymous.task.list.label.executionPeriod = Execution Period
+anonymous.task.list.label.workload = Workload (in hours)
+anonymous.task.list.label.startTime = Start moment
+anonymous.task.list.label.endTime = End moment
 
 anonymous.task.form.label.title = Title:
-anonymous.task.form.label.startTime = Start time:
-anonymous.task.form.label.endTime = End time:
-anonymous.task.form.label.workload = Workload:
+anonymous.task.form.label.startTime = Start moment:
+anonymous.task.form.label.endTime = End moment:
+anonymous.task.form.label.workload = Workload (in hours):
 anonymous.task.form.label.description = Description:
 anonymous.task.form.label.info = Additional information:
 
