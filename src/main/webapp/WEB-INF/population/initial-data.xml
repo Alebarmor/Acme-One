@@ -75,4 +75,18 @@
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
 	
+	<!-- Configurations -->
+	
+	<bean id="configurationEn" class = "acme.entities.configuration.Configuration">
+			<property name ="words" value = "sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
+			<property name="threshold" value = "0.1"/>
+			<property name="language" value="en"/>
+	</bean>
+	
+	<bean id="configurationEs" class = "acme.entities.configuration.Configuration">
+			<property name ="words" value = "sexo, duro, viagra, cialis, nigeria, has ganado, millón de dolares"/>
+			<property name="threshold" value = "0.1"/>
+			<property name="language" value="es"/>
+	</bean>
+	
 </beans>
