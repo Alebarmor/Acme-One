@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -57,6 +58,13 @@ public class Task extends DomainEntity {
 	
 	
 	// Derived variables
+	
+	@Transient
+	public double getDays() {
+	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60*24);
+	}
+	
+	
 	
 //	@Transient
 //	public double getWorkload() {
