@@ -46,7 +46,103 @@
 		<td>
 			<acme:print value="${avegageNumberOfApplicationsPerEmployer}"/>
 		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-public"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksPublic}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-private"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksPrivate}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-finished"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksFinished}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.total-number-task-unfinished"/>
+		</th>
+		<td>
+			<acme:print value="${numberOfTasksUnfinished}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.average-workload"/>
+		</th>
+		<td>
+			<acme:print value="${averageWorkload}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviation-workload"/>
+		</th>
+		<td>
+			<acme:print value="${deviationWorkload}"/>
+		</td>
 	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maximum-workload"/>
+		</th>
+		<td>
+			<acme:print value="${maximumWorkload}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minimum-workload"/>
+		</th>
+		<td>
+			<acme:print value="${minimumWorkload}"/>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.average-execution-period"/>
+		</th>
+		<td>
+			<acme:print value="${averageExecutionPeriod}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.deviation-execution-period"/>
+		</th>
+		<td>
+			<acme:print value="${deviationExecutionPeriod}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.maximum-execution-period"/>
+		</th>
+		<td>
+			<acme:print value="${maximumExecutionPeriod}"/>
+		</td>
+	</tr>	
+	<tr>
+		<th scope="row">
+			<acme:message code="administrator.dashboard.form.label.minimum-execution-period"/>
+		</th>
+		<td>
+			<acme:print value="${minimumExecutionPeriod}"/>
+		</td>
+	</tr>			
 </table>
 
 <h2>
