@@ -17,10 +17,10 @@ public class Configuration extends DomainEntity{
 	private static final long	serialVersionUID	= 1L;
 	
 	
-	protected String			spamWords;
+	protected String			words;
 	
 	@Range(min = 0, max = 1)
-	private double				spamThreshold;
+	private double				threshold;
 
 	@NotBlank
 	private String				language;
