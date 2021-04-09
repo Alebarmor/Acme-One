@@ -19,7 +19,7 @@ public class AuthenticatedTaskListService implements AbstractListService<Authent
 	protected AuthenticatedTaskRepository repository;
 
 
-	// AbstractListService<Administrator, Shout> interface --------------
+	// AbstractListService<Authenticated, Task> interface --------------
 
 	@Override
 	public boolean authorise(final Request<Task> request) {

@@ -80,13 +80,13 @@
 	<bean id="configurationEn" class = "acme.entities.configuration.Configuration">
 			<property name ="words" value = "sex, hard core, viagra, cialis, nigeria, you've won, million dollar"/>
 			<property name="threshold" value = "0.1"/>
-			<property name="language" value="en"/>
+			<property name="language" value="English"/>
 	</bean>
 	
 	<bean id="configurationEs" class = "acme.entities.configuration.Configuration">
 			<property name ="words" value = "sexo, duro, viagra, cialis, nigeria, has ganado, millón de dolares"/>
 			<property name="threshold" value = "0.1"/>
-			<property name="language" value="es"/>
+			<property name="language" value="Español"/>
 	</bean>
 	
 </beans>
