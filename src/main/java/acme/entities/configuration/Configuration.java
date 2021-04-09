@@ -25,25 +25,25 @@ public class Configuration extends DomainEntity{
 	@NotBlank
 	private String				language;
 	
-//	public Boolean isValid(final String s) {
-//        Boolean res = true;
-//        
-//        final String[] spamWords = this.words.split(", ");
-//        
-//        final String sm = s.replaceAll(",", "").replaceAll(".", "").replaceAll(";", "");
-//        final String[] stringWords = sm.split(" ");
-//        
-//        for(int i = 0; i < spamWords.length; ++i) {
-//            sm.replaceAll(spamWords[i], "");
-//        }
-//        
-//        final String[] stringWordsReduced = sm.split(" ");
-//        
-//        final int n = stringWords.length;
-//        final int nr = stringWordsReduced.length;
-//        
-//        res = (n - nr) < (this.threshold * n);
-//        
-//        return res;
-//    }
+	public Boolean spamValidation(final String s) {
+        Boolean res = true;
+        
+        final String[] spamWords = this.words.split(", ");
+        
+        final String sm = s.replaceAll(",", "").replaceAll(".", "").replaceAll(";", "");
+        final String[] stringWords = sm.split(" ");
+        
+        for(int i = 0; i < spamWords.length; ++i) {
+            sm.replaceAll(spamWords[i], "");
+        }
+        
+        final String[] stringWordsReduced = sm.split(" ");
+        
+        final int n = stringWords.length;
+        final int nr = stringWordsReduced.length;
+        
+        res = (n - nr) < (this.threshold * n);
+        
+        return res;
+    }
 }
