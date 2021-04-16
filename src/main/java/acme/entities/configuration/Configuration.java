@@ -34,7 +34,7 @@ public class Configuration extends DomainEntity{
         final String[] stringWords = sm.split(" ");
         
         for(int i = 0; i < spamWords.length; ++i) {
-            sm.replaceAll(spamWords[i], "");
+            sm.replaceAll(spamWords[i] + " ", "");
         }
         
         final String[] stringWordsReduced = sm.split(" ");
