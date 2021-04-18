@@ -1,12 +1,15 @@
 
 package acme.entities.tasks;
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.workPlans.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,6 +51,7 @@ public class Task extends DomainEntity {
 	@URL
 	protected String info;
 	
+	@NotNull
 	protected boolean isPublic;
 	
 	public void setIsPublic(final boolean a) {
@@ -65,18 +70,10 @@ public class Task extends DomainEntity {
 	}
 	
 	
+	// Associations
 	
-//	@Transient
-//	public double getWorkload() {
-//	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60);
-//	}
-//	
-//	@Transient
-//	public String getExecutionPeriod() {
-//		final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
-//		final String strDate = dateFormat.format(this.startTime);  
-//		final String endDate = dateFormat.format(this.endTime); 
-//		return strDate + " - " + endDate;
-//	}
+	@Valid
+	@ManyToMany()
+	Collection<WorkPlan> workPlans;
 	
 }
