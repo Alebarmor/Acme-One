@@ -1,6 +1,7 @@
 package acme.features.manager.task;
 
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -88,18 +89,18 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 			errors.state(request, entity.getWorkload()<= executionPeriodInHours, "workload", "manager.task.form.error.workload");
 			
 		}
+				
+		final List<Configuration> listConfigurations = new ArrayList<>(this.repository.getConfiguration());
 		
-
-		final Iterator<Configuration> listConfigurations = this.repository.getConfiguration().iterator();
-		final Configuration confEng = listConfigurations.next();
-		final Configuration confEsp = listConfigurations.next();
+		final Configuration confEng = listConfigurations.get(0);
+		final Configuration confEsp = listConfigurations.get(1);
 		
 		if (!errors.hasErrors("title")) {
-			errors.state(request, !confEng.spamValidation(entity.getTitle()) || !confEsp.spamValidation(entity.getTitle()), "title", "manager.task.form.error.spam");
+			errors.state(request, !(confEng.spamValidation(entity.getTitle()) || confEsp.spamValidation(entity.getTitle())), "title", "manager.task.form.error.spam");
 		}
 		
 		if (!errors.hasErrors("description")) {
-			errors.state(request, !confEng.spamValidation(entity.getDescription()) || !confEsp.spamValidation(entity.getDescription()), "description", "manager.task.form.error.spam");
+			errors.state(request, !(confEng.spamValidation(entity.getDescription()) || confEsp.spamValidation(entity.getDescription())), "description", "manager.task.form.error.spam");
 		}
 	}
 
