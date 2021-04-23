@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,6 +19,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Manager;
 import acme.entities.workPlans.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -58,6 +60,7 @@ public class Task extends DomainEntity {
 		this.isPublic = a;
 	}
 	
+	
 	@Min(0)
     public double workload;
 	
@@ -69,6 +72,10 @@ public class Task extends DomainEntity {
 	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60*24);
 	}
 	
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Manager manager;
 	
 	// Associations
 	

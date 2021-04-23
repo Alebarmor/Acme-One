@@ -30,19 +30,21 @@ public class Configuration extends DomainEntity{
         
         final String[] spamWords = this.words.split(", ");
         
-        final String sm = s.replaceAll(",", "").replaceAll(".", "").replaceAll(";", "");
+        String sm = s.replace(",", " ").replace(".", " ").replace(";", " ").replace("  ", " ");
+        
         final String[] stringWords = sm.split(" ");
         
+        final int n = stringWords.length;
+        
         for(int i = 0; i < spamWords.length; ++i) {
-            sm.replaceAll(spamWords[i], "");
+            sm = sm.replace(spamWords[i], "");
         }
         
-        final String[] stringWordsReduced = sm.split(" ");
+        final String[] stringWordsReduced = sm.replace("  ", " ").split(" ");
         
-        final int n = stringWords.length;
         final int nr = stringWordsReduced.length;
         
-        res = (n - nr) < (this.threshold * n);
+        res = (n - nr) >= (this.threshold * n);
         
         return res;
     }
