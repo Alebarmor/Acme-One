@@ -49,6 +49,11 @@ public class WorkPlan extends DomainEntity {
 		return this.tasks.stream().mapToDouble(x -> x.workload).sum();
 	}
 	
+	@Transient
+	public double getDays() {
+	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60*24);
+	}
+	
 	
 	// Associations
 	
