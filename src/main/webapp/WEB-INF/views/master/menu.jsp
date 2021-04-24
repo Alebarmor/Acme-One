@@ -43,6 +43,7 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show"/>
+			<acme:menu-suboption code="master.menu.administrator.work-plan-dashboard" action="/administrator/workplandashboard/show"/>
 			<acme:menu-suboption code="master.menu.administrator.configuration" action="/administrator/configuration/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>

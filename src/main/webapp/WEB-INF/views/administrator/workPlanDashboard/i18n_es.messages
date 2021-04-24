@@ -1,0 +1,16 @@
+# i18n_es.messages
+#
+# Copyright (C) 2012-2021 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.workPlanDashboard.form.title.show = Panel de indicadores de planes de trabajo
+
+administrator.dashboard.form.label.total-number-workplan-public = Número de planes de trabajo públicos
+administrator.dashboard.form.label.total-number-workplan-private = Número de planes de trabajo privados
+administrator.dashboard.form.label.total-number-workplan-finished = Número de planes de trabajo terminados
+administrator.dashboard.form.label.total-number-workplan-unfinished = Número de planes de trabajo sin terminar

@@ -49,6 +49,7 @@ master.menu.administrator.announcement.list-all = Ver todos los anuncios
 master.menu.administrator.announcement.list-recent = Ver anuncios recientes
 master.menu.administrator.announcement.create = Crear anuncio
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.work-plan-dashboard = Panel de indicadores de planes de trabajo
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.configuration = Configuración
 master.menu.administrator.populate-initial = Poblar BD (inicial)
