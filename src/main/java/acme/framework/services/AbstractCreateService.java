@@ -14,6 +14,7 @@ package acme.framework.services;
 
 import org.springframework.stereotype.Service;
 
+import acme.features.anonymous.shout.Task;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -55,5 +56,6 @@ public interface AbstractCreateService<R extends UserRole, E> extends //
 	@Override
 	default void onFailure(final Request<E> request, final Response<E> response, final Throwable oops) {
 	}
+
 
 }

@@ -47,18 +47,20 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "author", "text", "moment");
+		request.unbind(entity, model, "tittle", "text", "moment");
 	}
-
+	
 	@Override
 	public Collection<Shout> findMany(final Request<Shout> request) {
 		assert request != null;
 
 		Collection<Shout> result;
 
-		result = this.repository.findMany();
+		result = this.repository.findManyShoutByAnonymos(request.getPrincipal().getActiveRoleId());
 
 		return result;
 	}
+
+	
 
 }
