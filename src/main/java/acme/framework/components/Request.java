@@ -209,4 +209,9 @@ public class Request<E> {
 		return result;
 	}
 
+	public Object getPrincipal() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

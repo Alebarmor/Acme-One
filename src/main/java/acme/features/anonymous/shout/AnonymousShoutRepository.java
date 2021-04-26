@@ -12,18 +12,34 @@
 
 package acme.features.anonymous.shout;
 
+import java.lang.module.Configuration;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.entities.shouts.Shout;
+import acme.framework.entities.Anonymous;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AnonymousShoutRepository extends AbstractRepository {
 
-	@Query("select s from Shout s")
-	Collection<Shout> findMany();
+	
+	@Query("select t from Task t")
+	Collection<Task> findMany();
+	
+	@Query("select t from Task t where t.manager.id = ?1")
+	Collection<Task> findManyTaskByAnnonymous(int id);
+	
+	@Query("select m from Manager m where m.id = ?1")
+	Anonymous findOneAnnonymousById(int id);
+
+	@Query("select t from Task t where t.id = ?1")
+	Task findOneTaskById(int id);
+	
+	@Query("select c from Configuration c")
+	Collection<Configuration> getConfiguration();
+	
 
 }
