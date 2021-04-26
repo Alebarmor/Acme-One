@@ -26,17 +26,17 @@ import acme.framework.repositories.AbstractRepository;
 public interface AnonymousShoutRepository extends AbstractRepository {
 
 	
-	@Query("select t from Task t")
-	Collection<Task> findMany();
+	@Query("select t from Shout t")
+	Collection<Shout> findMany();
 	
-	@Query("select t from Task t where t.manager.id = ?1")
-	Collection<Task> findManyTaskByAnnonymous(int id);
+	@Query("select t from Shout t where t.manager.id = ?1")
+	Collection<Shout> findManyShoutByAnonymous(int id);
 	
-	@Query("select m from Manager m where m.id = ?1")
+	@Query("select m from Anonymous m where m.id = ?1")
 	Anonymous findOneAnnonymousById(int id);
 
 	@Query("select t from Task t where t.id = ?1")
-	Task findOneTaskById(int id);
+	Shout findOneShoutById(int id);
 	
 	@Query("select c from Configuration c")
 	Collection<Configuration> getConfiguration();

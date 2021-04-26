@@ -56,7 +56,7 @@ public class AnonymousShoutListService implements AbstractListService<Anonymous,
 
 		Collection<Shout> result;
 
-		result = this.repository.findManyShoutByAnonymos(request.getPrincipal().getActiveRoleId());
+		result = this.repository.findManyShoutByAnonymous(request.getPrincipal().getActiveRoleId());
 
 		return result;
 	}

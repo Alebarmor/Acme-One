@@ -23,6 +23,7 @@ import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.URL;
 
+import acme.framework.entities.Anonymous;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,6 +52,11 @@ public class Shout extends DomainEntity {
 	
 	@URL
 	protected String			info;
+
+	public void setAnonymous(Anonymous anonymous) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	// Derived attributes -----------------------------------------------------
 
