@@ -82,7 +82,9 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		boolean isSpam;
+		
+	isSpam = this.repository.
 	}
 
 	@Override
@@ -98,3 +100,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 	}
 
 }
+
+
+
+
