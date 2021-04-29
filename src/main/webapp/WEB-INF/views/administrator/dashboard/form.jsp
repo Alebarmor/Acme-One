@@ -264,12 +264,15 @@
 			]
 		};
 		var options = {
-			options : {
-				scales : {
-					y : {
-						beginAtZero : true
+			scales : {
+				yAxes : [
+					{
+						ticks : {
+							beginAtZero : true
+						}
 					}
-				}
+				]
+
 			},
 			legend : {
 				display : false
