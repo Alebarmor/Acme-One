@@ -14,6 +14,7 @@ package acme.features.anonymous.shout;
 
 import java.util.Collection;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -25,5 +26,8 @@ public interface AnonymousShoutRepository extends AbstractRepository {
 
 	@Query("select s from Shout s")
 	Collection<Shout> findMany();
+	
+	@Query("select c from Configuration c")
+	Collection<Configuration> getConfiguration();
 
 }
