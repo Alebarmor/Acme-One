@@ -17,9 +17,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -86,7 +86,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 		
-final List<Configuration> listConfigurations = new ArrayList<>(this.repository.getConfiguration());
+		final List<Configuration> listConfigurations = new ArrayList<>(this.repository.getConfiguration());
 		
 		final Configuration confEng = listConfigurations.get(0);
 		final Configuration confEsp = listConfigurations.get(1);
@@ -95,9 +95,11 @@ final List<Configuration> listConfigurations = new ArrayList<>(this.repository.g
 			errors.state(request, !(confEng.spamValidation(entity.getAuthor()) || confEsp.spamValidation(entity.getAuthor())), "author", "anonymous.shout.form.error.spam");
 		}
 		
-		if (!errors.hasErrors("info")) {
-			errors.state(request, !(confEng.spamValidation(entity.getInfo()) || confEsp.spamValidation(entity.getInfo())), "info", "anonymous.shout.form.error.spam");
+		if (!errors.hasErrors("text")) {
+			errors.state(request, !(confEng.spamValidation(entity.getText()) || confEsp.spamValidation(entity.getText())), "text", "anonymous.shout.form.error.spam");
 		}
+	
+	}
 
 
 	@Override

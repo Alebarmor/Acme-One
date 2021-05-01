@@ -14,10 +14,10 @@ package acme.features.anonymous.shout;
 
 import java.util.Collection;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.shouts.Shout;
 import acme.framework.repositories.AbstractRepository;
 
