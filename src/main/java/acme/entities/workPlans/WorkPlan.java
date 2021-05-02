@@ -3,16 +3,18 @@ package acme.entities.workPlans;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.tasks.Task;
+import acme.entities.roles.Manager;
+import acme.entities.taskWorkPlans.TaskWorkPlan;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +28,9 @@ public class WorkPlan extends DomainEntity {
 	
 	@NotNull
 	protected boolean isPublic;
+	
+	@ManyToOne(optional = false)
+	protected Manager manager;
 	
 	public void setIsPublic(final boolean a) {
 		this.isPublic = a;
@@ -41,20 +46,10 @@ public class WorkPlan extends DomainEntity {
 	@NotNull
 	protected Date endTime;
 	
-	
-	// Derived variables
-	
-	@Transient
-	public double getWorkload(){
-		return this.tasks.stream().mapToDouble(x -> x.workload).sum();
-	}
-	
-	
 	// Associations
 	
-	@NotNull
 	@Valid
-	@ManyToMany(mappedBy="workPlans")
-	Collection<Task> tasks;
+	@OneToMany(cascade = CascadeType.REMOVE, mappedBy = "workPlan")
+	private Collection<TaskWorkPlan> taskWorkPlan;
 
 }

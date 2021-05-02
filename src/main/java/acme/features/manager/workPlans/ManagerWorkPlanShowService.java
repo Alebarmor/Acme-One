@@ -1,50 +1,50 @@
-package acme.features.manager.task;
+package acme.features.manager.workPlans;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
-import acme.entities.tasks.Task;
+import acme.entities.workPlans.WorkPlan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class ManagerTaskShowService implements AbstractShowService<Manager, Task> {
+public class ManagerWorkPlanShowService implements AbstractShowService<Manager, WorkPlan> {
 	
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected ManagerTaskRepository repository;
+	protected ManagerWorkPlanRepository repository;
 
 	// AbstractShowService<Administrator, Announcement> interface --------------
 
 
 	@Override
-	public boolean authorise(final Request<Task> request) {
+	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public void unbind(final Request<Task> request, final Task entity, final Model model) {
+	public void unbind(final Request<WorkPlan> request, final WorkPlan entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "startTime", "endTime", "workload", "description", "isPublic", "info");		
+		request.unbind(entity, model, "startTime", "endTime");		
 	}
 
 	@Override
-	public Task findOne(final Request<Task> request) {
+	public WorkPlan findOne(final Request<WorkPlan> request) {
 		assert request != null;
 
-		Task result;
+		WorkPlan result;
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneTaskById(id);
+		result = this.repository.findOneWorkPlanById(id);
 
 		return result;
 	}
