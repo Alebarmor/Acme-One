@@ -18,14 +18,6 @@
 
 <tiles-definitions>
 
-	<definition name="manager/work-plan/form" extends="master">
-		<put-attribute name="body" type="template" value="../manager/workPlan/form.jsp" />
-	</definition>
-	
-	<definition name="manager/work-plan/list" extends="master">
-		<put-attribute name="body" type="template" value="../manager/workPlan/list.jsp" />
-	</definition>
-	
 	<definition name="manager/task-work-plan/list" extends="master">
 		<put-attribute name="body" type="template" value="../manager/taskWorkPlan/list.jsp" />
 	</definition>

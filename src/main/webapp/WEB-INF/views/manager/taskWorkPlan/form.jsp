@@ -21,7 +21,6 @@
 	<acme:form-checkbox code="manager.workPlan.form.label.isPublic" path="isPublic"/>
 	
 	
-	<acme:form-submit test="${command == 'create'}" code="manager.workPlan.form.button.create" action="/manager/work-plan/create"/>
-	<acme:form-submit code="listar las task que puedo meter" action="/manager/work-plan/list-tasks"/>
+	<acme:form-submit test="${command == 'create'}" code="manager.workPlan.form.button.create" action="/manager/task/create"/>
   	<acme:form-return code="manager.workPlan.form.button.return"/>
 </acme:form>

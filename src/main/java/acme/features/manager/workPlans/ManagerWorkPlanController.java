@@ -12,13 +12,16 @@ import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 
 @Controller
-@RequestMapping("/manager/workplan/")
+@RequestMapping("/manager/work-plan/")
 public class ManagerWorkPlanController extends AbstractController<Manager, WorkPlan> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected ManagerWorkPlanListService	listService;
+	
+	@Autowired
+	protected ManagerWorkPlanTaskListService	listTasksService;
 	
 	@Autowired
 	protected ManagerWorkPlanShowService	showService;
@@ -39,10 +42,13 @@ public class ManagerWorkPlanController extends AbstractController<Manager, WorkP
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
-		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		
+//		super.addCustomCommand(CustomCommand.LIST_TASKS,BasicCommand.LIST, this.listTasksService);
+//		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
-		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+//		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
+//		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+	
 	}
 
 
