@@ -52,7 +52,7 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "startTime", "endTime", "description", "info", "isPublic");
+		request.unbind(entity, model, "title", "startTime", "endTime", "description", "info","workload", "isPublic");
 	}
 
 	@Override

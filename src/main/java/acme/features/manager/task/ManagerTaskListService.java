@@ -34,7 +34,7 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "startTime", "endTime", "workload");
+		request.unbind(entity, model, "title", "startTime", "endTime", "workload", "isPublic");
 	}
 
 	@Override
