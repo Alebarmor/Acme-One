@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -54,9 +54,9 @@ public class Task extends DomainEntity {
 	protected String info;
 	
 	@NotNull
-	protected boolean isPublic;
+	protected Boolean isPublic;
 	
-	public void setIsPublic(final boolean a) {
+	public void setIsPublic(final Boolean a) {
 		this.isPublic = a;
 	}
 	
