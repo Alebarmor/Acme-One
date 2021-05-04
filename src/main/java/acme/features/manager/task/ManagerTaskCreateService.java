@@ -73,9 +73,9 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 		
+		
 		if (!errors.hasErrors("endTime")) {
-			errors.state(request, entity.getEndTime().after(entity.getStartTime()), "endTime", "manager.task.form.error.isBefore");
-			
+			errors.state(request, entity.getEndTime().after(entity.getStartTime()), "endTime", "manager.task.form.error.isBefore");	
 		}
 		
 		if (!errors.hasErrors("workload")) {
@@ -108,7 +108,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public void create(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;
-
+		
 		this.repository.save(entity);
 	}
 

@@ -25,6 +25,7 @@ manager.task.form.button.return = Volver
 manager.task.form.error.isBefore = La fecha de finalizacion debe ser posterior a la fecha de inicio 
 manager.task.form.error.workload = La carga de trabajo no puede superar el periodo de ejecucion 
 manager.task.form.error.spam = Se ha detectado spam en el texto introducido
+manager.task.form.error.datePattern = El patrón introducido es incorrecto
 
 manager.task.list.label.title = Título
 manager.task.list.label.startTime = Momento de inicio

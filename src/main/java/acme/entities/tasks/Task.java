@@ -1,10 +1,9 @@
 
 package acme.entities.tasks;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -46,7 +45,8 @@ public class Task extends DomainEntity {
 	protected Date endTime;
 	
 	@NotBlank
-	@Length(min = 1, max = 400)
+	@Length(min = 1, max = 500)
+	@Column(length = 500)
 	protected String description;
 	
 	@URL
@@ -75,5 +75,12 @@ public class Task extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Manager manager;
+	
+	// Validations
+	
+//	@Transient
+//	public Boolean isInFormat(final String date){
+//		return date.matches("^\\d{4}/\\d{2}/\\d{2} \\d{2}/\\\\d{2}");
+//	}
 	
 }
