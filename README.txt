@@ -12,3 +12,14 @@ This is the Acme-One project, which is intended to be a core learning asset for 
 who have enroled the Design and Testing subject of the Software Engineering curriculum of the 
 University of Sevilla.  This project is intended to illustrate how to develop a simple web
 information system.
+
+url del proyecto: https://github.com/Alebarmor/Acme-One
+
+Credenciales github:
+user: Alebarmor
+password: AbmAbmAbm99
+
+credenciales clevercloud:
+user: alebarmor@alum.us.es
+password: abmabmabm99
+
