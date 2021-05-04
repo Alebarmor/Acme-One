@@ -15,11 +15,7 @@ information system.
 
 url del proyecto: https://github.com/Alebarmor/Acme-One
 
-Credenciales github:
+Credenciales github para loguearse en clevercloud:
 user: Alebarmor
 password: AbmAbmAbm99
-
-credenciales clevercloud:
-user: alebarmor@alum.us.es
-password: abmabmabm99
 
