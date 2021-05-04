@@ -14,6 +14,7 @@ University of Sevilla.  This project is intended to illustrate how to develop a 
 information system.
 
 url del proyecto: https://github.com/Alebarmor/Acme-One
+url de la release: https://github.com/Alebarmor/Acme-One/tree/1.0.0
 
 Credenciales github para loguearse en clevercloud:
 user: Alebarmor
