@@ -6,16 +6,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.Valid;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.roles.Manager;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,26 +52,28 @@ public class Task extends DomainEntity {
 	@URL
 	protected String info;
 	
-	protected boolean isPublic;
+	@NotNull
+	protected Boolean isPublic;
 	
-	public void setIsPublic(final boolean a) {
+	public void setIsPublic(final Boolean a) {
 		this.isPublic = a;
 	}
+	
+	
+	@Min(0)
+    public double workload;
 	
 	
 	// Derived variables
 	
 	@Transient
-	public double getWorkload() {
-	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60);
+	public double getDays() {
+	    return (double) (this.endTime.getTime() - this.startTime.getTime())/(1000*60*60*24);
 	}
 	
-	@Transient
-	public String getExecutionPeriod() {
-		final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");  
-		final String strDate = dateFormat.format(this.startTime);  
-		final String endDate = dateFormat.format(this.endTime); 
-		return strDate + " - " + endDate;
-	}
+	@NotNull
+	@Valid
+	@ManyToOne(optional = false)
+	protected Manager manager;
 	
 }

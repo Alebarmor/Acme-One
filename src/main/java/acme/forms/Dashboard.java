@@ -1,4 +1,5 @@
-/*
+
+ /*
 + * Dashboard.java
  *
  * Copyright (C) 2012-2021 Rafael Corchuelo.
@@ -43,6 +44,27 @@ public class Dashboard implements Serializable {
 	Double						deviationWorkload;
 	Double						maximumWorkload;
 	Double						minimumWorkload;
+	
+	Double						averageExecutionPeriod;
+	Double						deviationExecutionPeriod;
+	Double						maximumExecutionPeriod;
+	Double						minimumExecutionPeriod;
+	
+	Integer 					numberOfWorkPlans;
+	Integer						numberOfWorkPlansPublic;
+	Integer						numberOfWorkPlansPrivate;
+	Integer						numberOfWorkPlansFinished;
+	Integer						numberOfWorkPlansUnfinished;
+	
+	Double						averageWorkPlansWorkload;
+	Double						deviationWorkPlansWorkload;
+	Double						maximumWorkPlansWorkload;
+	Double						minimumWorkPlansWorkload;
+	
+	Double						averageWorkPlansExecutionPeriod;
+	Double						deviationWorkPlansExecutionPeriod;
+	Double						maximumWorkPlansExecutionPeriod;
+	Double						minimumWorkPlansExecutionPeriod;
 
 	// Derived attributes -----------------------------------------------------
 

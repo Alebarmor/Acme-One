@@ -20,9 +20,14 @@ administrator.dashboard.form.label.total-number-task-private = Número de tareas
 administrator.dashboard.form.label.total-number-task-finished = Número de tareas finalizadas
 administrator.dashboard.form.label.total-number-task-unfinished = Número de tareas sin finalizar
 
-administrator.dashboard.form.label.average-workload = Carga de trabajo media
-administrator.dashboard.form.label.deviation-workload = Desviación estándar de la carga de trabajo
-administrator.dashboard.form.label.maximum-workload = Carga de trabajo máxima
-administrator.dashboard.form.label.minimum-workload = Carga de trabajo mínima
+administrator.dashboard.form.label.average-workload = Carga de trabajo media (en horas)
+administrator.dashboard.form.label.deviation-workload = Desviación estándar de la carga de trabajo (en horas)
+administrator.dashboard.form.label.maximum-workload = Carga de trabajo máxima (en horas)
+administrator.dashboard.form.label.minimum-workload = Carga de trabajo mínima (en horas)
+
+administrator.dashboard.form.label.average-execution-period = Periodo de ejecución medio (en días)
+administrator.dashboard.form.label.deviation-execution-period = Desviación estándar del periodo de ejecución (en días)
+administrator.dashboard.form.label.maximum-execution-period = Periodo de ejecución máxima (en días)
+administrator.dashboard.form.label.minimum-execution-period = Periodo de ejecución mínima (en días)
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes

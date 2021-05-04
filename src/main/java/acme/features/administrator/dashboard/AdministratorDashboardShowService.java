@@ -53,9 +53,18 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		request.unbind(entity, model, //
 			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
 			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
-			"ratioOfRejectedApplications", "ratioOfAcceptedApplications", "numberOfTasksPublic", //
-			"numberOfTasksPrivate", "numberOfTasksFinished", "numberOfTasksUnfinished", "averageWorkload", //
-			"deviationWorkload", "minimumWorkload", "maximumWorkload");
+			"ratioOfRejectedApplications", "ratioOfAcceptedApplications", //
+			"numberOfTasksPublic", "numberOfTasksPrivate", "numberOfTasksFinished", //
+			"numberOfTasksUnfinished", "averageWorkload", "deviationWorkload", //
+			"maximumWorkload", "minimumWorkload", "averageExecutionPeriod", //
+			"deviationExecutionPeriod", "maximumExecutionPeriod", "minimumExecutionPeriod", //
+			"numberOfWorkPlans",
+			"numberOfWorkPlansPublic", "numberOfWorkPlansPrivate", "numberOfWorkPlansFinished", 
+			"numberOfWorkPlansUnfinished", //
+			"averageWorkPlansExecutionPeriod", "deviationWorkPlansExecutionPeriod",
+			"maximumWorkPlansExecutionPeriod","minimumWorkPlansExecutionPeriod", //
+			"averageWorkPlansWorkload",  "deviationWorkPlansWorkload",
+			"maximumWorkPlansWorkload", "minimumWorkPlansWorkload");
 	}
 
 	@Override
@@ -138,7 +147,95 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setMinimumWorkload(minimumWorkload);
 		
 
+		// ------------------- Task -----------------------
+
+		final Integer numberOfTasksPublic;
+		final Integer numberOfTasksPrivate;
+		final Integer numberOfTasksFinished;
+		final Integer numberOfTasksUnfinished;
+
+		numberOfTasksPublic = this.repository.numberOfTasksPublic();
+		numberOfTasksPrivate = this.repository.numberOfTasksPrivate();
+		numberOfTasksFinished = this.repository.numberOfTasksFinished();
+		numberOfTasksUnfinished = this.repository.numberOfTasksUnfinished();
+
+		result.setNumberOfTasksPublic(numberOfTasksPublic);
+		result.setNumberOfTasksPrivate(numberOfTasksPrivate);
+		result.setNumberOfTasksFinished(numberOfTasksFinished);
+		result.setNumberOfTasksUnfinished(numberOfTasksUnfinished);
+
+		// ------------------- Task Stats -----------------------
+
+		final Double averageWorkload;
+		final Double deviationWorkload;
+		final Double maximumWorkload;
+		final Double minimumWorkload;
+
+		final List<Double> wl = new ArrayList<Double>();
+
+		for (final Task t : this.repository.findMany()) {
+			wl.add(t.getWorkload());
+		}
+
+		Double n = 0.0;
+		Double stddev = 0.0;
+
+		for (final double d : wl) {
+			n += d;
+		}
+
+		averageWorkload = n / wl.size();
+
+		for (final double d : wl) {
+			stddev += Math.pow(d - averageWorkload, 2);
+		}
+
+		deviationWorkload = Math.sqrt(stddev / wl.size());
+		minimumWorkload = wl.stream().min(Comparator.naturalOrder()).get();
+		maximumWorkload = wl.stream().max(Comparator.naturalOrder()).get();
+
+		result.setAverageWorkload(averageWorkload);
+		result.setDeviationWorkload(deviationWorkload);
+		result.setMaximumWorkload(maximumWorkload);
+		result.setMinimumWorkload(minimumWorkload);
+
+		// ------------------- Execution Period Stats -----------------------
+
+		final Double averageExecutionPeriod;
+		final Double deviationExecutionPeriod;
+		final Double maximumExecutionPeriod;
+		final Double minimumExecutionPeriod;
+
+		final List<Double> days = new ArrayList<Double>();
+
+		for (final Task t : this.repository.findMany()) {
+			days.add(t.getDays());
+		}
+
+		Double i = 0.0;
+
+		for (final double d : days) {
+			i += d;
+		}
+
+		averageExecutionPeriod = i / days.size();
+
+		for (final double d : days) {
+			stddev += Math.pow(d - averageExecutionPeriod, 2);
+		}
+
+		deviationExecutionPeriod = Math.sqrt(stddev / days.size());
+		minimumExecutionPeriod = days.stream().min(Comparator.naturalOrder()).get();
+		maximumExecutionPeriod = days.stream().max(Comparator.naturalOrder()).get();
+
+		result.setAverageExecutionPeriod(averageExecutionPeriod);
+		result.setDeviationExecutionPeriod(deviationExecutionPeriod);
+		result.setMinimumExecutionPeriod(minimumExecutionPeriod);
+		result.setMaximumExecutionPeriod(maximumExecutionPeriod);
+	
 		return result;
 	}
+	
+	
 
 }

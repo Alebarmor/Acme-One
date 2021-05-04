@@ -33,6 +33,7 @@ master.menu.anonymous = Anonymous
 master.menu.anonymous.all-jobs = List all jobs
 master.menu.anonymous.list-shouts = List shouts
 master.menu.anonymous.create-shout = Shout!
+master.menu.anonymous.list-task = Task list
 
 # master.menu.authenticated #######################################################
 
@@ -49,9 +50,16 @@ master.menu.administrator.announcement.list-recent = List recent announcements
 master.menu.administrator.announcement.create = Create announcement
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.configuration = Configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shutdown = Shut down
+
+# master.menu.manager ########################################################
+
+master.menu.manager = Manager
+master.menu.manager.task.list = List all my tasks
+master.menu.manager.task.create = Create task
 
 # master.menu.employer ########################################################
 

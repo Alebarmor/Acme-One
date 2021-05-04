@@ -12,11 +12,14 @@
 
 package acme.features.anonymous.shout;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.configuration.Configuration;
 import acme.entities.shouts.Shout;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -82,8 +85,22 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
+		
+		final List<Configuration> listConfigurations = new ArrayList<>(this.repository.getConfiguration());
+		
+		final Configuration confEng = listConfigurations.get(0);
+		final Configuration confEsp = listConfigurations.get(1);
+		
+		if (!errors.hasErrors("author")) {
+			errors.state(request, !(confEng.spamValidation(entity.getAuthor()) || confEsp.spamValidation(entity.getAuthor())), "author", "anonymous.shout.form.error.spam");
+		}
+		
+		if (!errors.hasErrors("text")) {
+			errors.state(request, !(confEng.spamValidation(entity.getText()) || confEsp.spamValidation(entity.getText())), "text", "anonymous.shout.form.error.spam");
+		}
+	
 	}
+
 
 	@Override
 	public void create(final Request<Shout> request, final Shout entity) {

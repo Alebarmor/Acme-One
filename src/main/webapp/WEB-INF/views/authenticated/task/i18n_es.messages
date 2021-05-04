@@ -9,13 +9,15 @@
 # they accept any liabilities with respect to them.
 
 authenticated.task.form.label.title = Título:
-authenticated.task.form.label.executionPeriod = Período de ejecución:
-authenticated.task.form.label.workload = Carga de trabajo:
+authenticated.task.form.label.startTime = Momento de inicio:
+authenticated.task.form.label.endTime = Momento de fin:
+authenticated.task.form.label.workload = Carga de trabajo (en horas):
 authenticated.task.form.label.description = Descripción:
 authenticated.task.form.label.info = Información adicional:
 
 authenticated.task.form.button.return = Volver
 
 authenticated.task.list.label.title = Título
-authenticated.task.list.label.executionPeriod = Periodo de ejecución
-authenticated.task.list.label.workload = Carga de trabajo
+authenticated.task.list.label.startTime = Momento de inicio
+authenticated.task.list.label.endTime = Momento de fin
+authenticated.task.list.label.workload = Carga de trabajo (en horas)
