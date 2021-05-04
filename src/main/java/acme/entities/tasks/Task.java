@@ -1,11 +1,9 @@
 
 package acme.entities.tasks;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,7 +18,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.roles.Manager;
-import acme.entities.workPlans.WorkPlan;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -76,11 +73,5 @@ public class Task extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Manager manager;
-	
-	// Associations
-	
-	@Valid
-	@ManyToMany()
-	Collection<WorkPlan> workPlans;
 	
 }

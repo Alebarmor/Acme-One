@@ -331,6 +331,7 @@
         <property name="isPublic" value="true"/>
         <property name="manager" ref="manager1Manager"/>
     </bean>
+    
     <bean name="task02" class="acme.entities.tasks.Task">
         <property name="title" value="Do the dishes"/>
         <property name="startTime" value="2021/05/08 12:00"/>
@@ -339,9 +340,9 @@
         <property name="description" value="I don't want..."/>
         <property name="info" value="https://www.bosch-home.es/"/>
         <property name="isPublic" value="false"/>
-        
         <property name="manager" ref="manager1Manager"/>
     </bean>
+    
     <bean name="task03" class="acme.entities.tasks.Task">
         <property name="title" value="Study biology"/>
         <property name="startTime" value="2021/05/10 11:30"/>
@@ -361,31 +362,6 @@
         <property name="info"><null/></property>
         <property name="isPublic" value="false"/>
         <property name="manager" ref="manager1Manager"/>
-    </bean>
-    
-    <!-- Work Plans -->
-    <bean name="workPlan01" class="acme.entities.workPlans.WorkPlan">
-        <property name="isPublic" value="true"/>
-        <property name="startTime" value="2021/05/10 00:00"/>
-        <property name="endTime" value="2021/06/01 00:00"/>
-        <property name="tasks">
-        	<list>
-        		<ref bean="task01"/>
-        		<ref bean="task03"/>
-        	</list>
-        </property>
-    </bean>
-    
-    <bean name="workPlan02" class="acme.entities.workPlans.WorkPlan">
-        <property name="isPublic" value="false"/>
-        <property name="startTime" value="2021/05/08 00:00"/>
-        <property name="endTime" value="2021/06/01 00:00"/>
-        <property name="tasks">
-        	<list>
-        		<ref bean="task01"/>
-        		<ref bean="task02"/>
-        	</list>
-        </property>
     </bean>
     
 </beans>

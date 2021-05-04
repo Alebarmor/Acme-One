@@ -30,11 +30,4 @@ administrator.dashboard.form.label.deviation-execution-period = Desviación est�
 administrator.dashboard.form.label.maximum-execution-period = Periodo de ejecución máxima (en días)
 administrator.dashboard.form.label.minimum-execution-period = Periodo de ejecución mínima (en días)
 
-administrator.dashboard.form.title.work-plan-indicators = Indicadores de planes de trabajo
-
-administrator.dashboard.form.label.total-number-workplan-public = Número de planes de trabajo públicos
-administrator.dashboard.form.label.total-number-workplan-private = Número de planes de trabajo privados
-administrator.dashboard.form.label.total-number-workplan-finished = Número de planes de trabajo terminados
-administrator.dashboard.form.label.total-number-workplan-unfinished = Número de planes de trabajo sin terminar 
-
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes

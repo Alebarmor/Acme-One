@@ -30,12 +30,5 @@ administrator.dashboard.form.label.deviation-execution-period = Standard deviati
 administrator.dashboard.form.label.maximum-execution-period = Maximum execution period (in days)
 administrator.dashboard.form.label.minimum-execution-period = Minimum execution period (in days)
 
-administrator.dashboard.form.title.work-plan-indicators = Work plans indicators
-
-administrator.dashboard.form.label.total-number-workplan-public = Number of public work plans
-administrator.dashboard.form.label.total-number-workplan-private = Number of private work plans
-administrator.dashboard.form.label.total-number-workplan-finished = Number of finished work plans
-administrator.dashboard.form.label.total-number-workplan-unfinished = Number of unfinished work plans
-
 administrator.dashboard.form.title.application-statuses = Application statuses
 

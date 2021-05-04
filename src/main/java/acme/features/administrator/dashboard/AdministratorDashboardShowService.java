@@ -20,7 +20,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tasks.Task;
-import acme.entities.workPlans.WorkPlan;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -180,96 +179,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDeviationExecutionPeriod(deviationExecutionPeriod);
 		result.setMinimumExecutionPeriod(minimumExecutionPeriod);
 		result.setMaximumExecutionPeriod(maximumExecutionPeriod);
-
-		// ------------------- WorkPlans -----------------------
-
-		final Integer numberOfWorkPlans;
-		final Integer numberOfWorkPlansPublic;
-		final Integer numberOfWorkPlansPrivate;
-		final Integer numberOfWorkPlansFinished;
-		final Integer numberOfWorkPlansUnfinished;
-
-		numberOfWorkPlans = this.repository.numberOfWorkPlans();
-		numberOfWorkPlansPublic = this.repository.numberOfWorkPlansPublic();
-		numberOfWorkPlansPrivate = this.repository.numberOfWorkPlansPrivate();
-		numberOfWorkPlansFinished = this.repository.numberOfWorkPlansFinished();
-		numberOfWorkPlansUnfinished = this.repository.numberOfWorkPlansUnfinished();
-
-		result.setNumberOfWorkPlans(numberOfWorkPlans);
-		result.setNumberOfWorkPlansPublic(numberOfWorkPlansPublic);
-		result.setNumberOfWorkPlansPrivate(numberOfWorkPlansPrivate);
-		result.setNumberOfWorkPlansFinished(numberOfWorkPlansFinished);
-		result.setNumberOfWorkPlansUnfinished(numberOfWorkPlansUnfinished);
-
-		// ------------------- WorkPlans Stats -----------------------
-		
-		final Double averageWorkPlansWorkload;
-		final Double deviationWorkPlansWorkload;
-		final Double maximumWorkPlansWorkload;
-		final Double minimumWorkPlansWorkload;
-
-		final List<Double> wlwp = new ArrayList<Double>();
-
-		for (final WorkPlan wp : this.repository.findManyWorkPlans()) {
-			wlwp.add(wp.getWorkload());
-		}
-
-		Double nwp = 0.0;
-		Double stddevwp = 0.0;
-
-		for (final double d : wlwp) {
-			nwp += d;
-		}
-
-		averageWorkPlansWorkload = nwp / wlwp.size();
-
-		for (final double d : wlwp) {
-			stddevwp += Math.pow(d - averageWorkload, 2);
-		}
-
-		deviationWorkPlansWorkload = Math.sqrt(stddevwp / wlwp.size());
-		minimumWorkPlansWorkload = wlwp.stream().min(Comparator.naturalOrder()).get();
-		maximumWorkPlansWorkload = wlwp.stream().max(Comparator.naturalOrder()).get();
-		
-		result.setAverageWorkPlansWorkload(averageWorkPlansWorkload);
-		result.setDeviationWorkPlansWorkload(deviationWorkPlansWorkload);
-		result.setMaximumWorkPlansWorkload(maximumWorkPlansWorkload);
-		result.setMinimumWorkPlansWorkload(minimumWorkPlansWorkload);
-		
-		
-		
-		// ------------------- Execution Period Workplan Stats -----------------------
-		final Double averageWorkPlansExecutionPeriod;
-		final Double deviationWorkPlansExecutionPeriod;
-		final Double maximumWorkPlansExecutionPeriod;
-		final Double minimumWorkPlansExecutionPeriod;
-		
-		final List<Double> wpdays = new ArrayList<Double>();
-
-		for (final WorkPlan wp : this.repository.findManyWorkPlans()) {
-			wpdays.add(wp.getDays());
-		}
-		
-		Double j = 0.0;
-
-		for (final double d : wpdays) {
-			j += d;
-		}
-
-		averageWorkPlansExecutionPeriod = j / wpdays.size();
-		
-		for (final double d : wpdays) {
-			stddevwp += Math.pow(d - averageWorkPlansExecutionPeriod, 2);
-		}
-		
-		deviationWorkPlansExecutionPeriod = Math.sqrt(stddevwp / wpdays.size());
-		minimumWorkPlansExecutionPeriod = wpdays.stream().min(Comparator.naturalOrder()).get();
-		maximumWorkPlansExecutionPeriod = wpdays.stream().max(Comparator.naturalOrder()).get();
-		
-		result.setAverageWorkPlansExecutionPeriod(averageWorkPlansExecutionPeriod);
-		result.setDeviationWorkPlansExecutionPeriod(deviationWorkPlansExecutionPeriod);
-		result.setMinimumWorkPlansExecutionPeriod(minimumWorkPlansExecutionPeriod);
-		result.setMaximumWorkPlansExecutionPeriod(maximumWorkPlansExecutionPeriod);
 	
 		return result;
 	}
