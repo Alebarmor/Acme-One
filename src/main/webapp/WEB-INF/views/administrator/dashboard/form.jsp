@@ -113,6 +113,7 @@
 		</th>
 		<td><acme:print value="${minimumExecutionPeriod}" /></td>
 	</tr>
+
 </table>
 
 <div>
