@@ -145,59 +145,6 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDeviationWorkload(deviationWorkload);
 		result.setMaximumWorkload(maximumWorkload);
 		result.setMinimumWorkload(minimumWorkload);
-		
-
-		// ------------------- Task -----------------------
-
-		final Integer numberOfTasksPublic;
-		final Integer numberOfTasksPrivate;
-		final Integer numberOfTasksFinished;
-		final Integer numberOfTasksUnfinished;
-
-		numberOfTasksPublic = this.repository.numberOfTasksPublic();
-		numberOfTasksPrivate = this.repository.numberOfTasksPrivate();
-		numberOfTasksFinished = this.repository.numberOfTasksFinished();
-		numberOfTasksUnfinished = this.repository.numberOfTasksUnfinished();
-
-		result.setNumberOfTasksPublic(numberOfTasksPublic);
-		result.setNumberOfTasksPrivate(numberOfTasksPrivate);
-		result.setNumberOfTasksFinished(numberOfTasksFinished);
-		result.setNumberOfTasksUnfinished(numberOfTasksUnfinished);
-
-		// ------------------- Task Stats -----------------------
-
-		final Double averageWorkload;
-		final Double deviationWorkload;
-		final Double maximumWorkload;
-		final Double minimumWorkload;
-
-		final List<Double> wl = new ArrayList<Double>();
-
-		for (final Task t : this.repository.findMany()) {
-			wl.add(t.getWorkload());
-		}
-
-		Double n = 0.0;
-		Double stddev = 0.0;
-
-		for (final double d : wl) {
-			n += d;
-		}
-
-		averageWorkload = n / wl.size();
-
-		for (final double d : wl) {
-			stddev += Math.pow(d - averageWorkload, 2);
-		}
-
-		deviationWorkload = Math.sqrt(stddev / wl.size());
-		minimumWorkload = wl.stream().min(Comparator.naturalOrder()).get();
-		maximumWorkload = wl.stream().max(Comparator.naturalOrder()).get();
-
-		result.setAverageWorkload(averageWorkload);
-		result.setDeviationWorkload(deviationWorkload);
-		result.setMaximumWorkload(maximumWorkload);
-		result.setMinimumWorkload(minimumWorkload);
 
 		// ------------------- Execution Period Stats -----------------------
 
