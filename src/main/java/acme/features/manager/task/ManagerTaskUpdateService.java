@@ -1,5 +1,6 @@
 package acme.features.manager.task;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,16 +53,16 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 			
 		}
 		
-		if (!errors.hasErrors("workload")) {
-			final double executionPeriodInHours;
-			long executionPeriod;
+		if (!errors.hasErrors("workload") && !errors.hasErrors("endTime") && !errors.hasErrors("startTime") ) {
+			final Double workload = entity.getWorkload();
+			final BigDecimal bigDecimal = new BigDecimal(String.valueOf(workload));
 			
-			executionPeriod = entity.getEndTime().getTime()-entity.getStartTime().getTime();
-			
-			executionPeriodInHours = executionPeriod / 3600000.0; //Un minuto son 60.000 milisegundos 
-			
-			errors.state(request, entity.getWorkload()<= executionPeriodInHours, "workload", "manager.task.form.error.workload");
-			
+			final int intValue = bigDecimal.intValue();
+			final double decimalPart = bigDecimal.subtract(new BigDecimal(intValue)).doubleValue();
+			final double unityPart = intValue - decimalPart;
+			errors.state(request, decimalPart < 0.60, "workload", "manager.task.form.error.workload.decimal");
+			errors.state(request, unityPart < 100.0, "workload", "manager.task.form.error.workload.unity");
+			errors.state(request, entity.getWorkload() <= entity.getExecutionPeriodInHours(), "workload", "manager.task.form.error.workload");			
 		}
 		
 		final List<Configuration> listConfigurations = new ArrayList<>(this.repository.getConfiguration());

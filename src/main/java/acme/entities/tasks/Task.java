@@ -1,6 +1,7 @@
 
 package acme.entities.tasks;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -76,11 +77,21 @@ public class Task extends DomainEntity {
 	@ManyToOne(optional = false)
 	protected Manager manager;
 	
-	// Validations
-	
-//	@Transient
-//	public Boolean isInFormat(final String date){
-//		return date.matches("^\\d{4}/\\d{2}/\\d{2} \\d{2}/\\\\d{2}");
-//	}
-	
+	public double getExecutionPeriodInHours() {
+		final double executionPeriodInHours;
+		long executionPeriod;
+		
+		executionPeriod = this.endTime.getTime() - this.startTime.getTime();
+		
+		executionPeriodInHours = executionPeriod / 3600000.0; //Un minuto son 60.000 milisegundos
+		
+		final BigDecimal bigDecimal2 = new BigDecimal(String.valueOf(executionPeriodInHours));
+		
+		final int intValue2 = bigDecimal2.intValue();
+		final double decimalPart2 = bigDecimal2.subtract(new BigDecimal(intValue2)).doubleValue();
+		
+		final double decimalFinal = (decimalPart2 * 60) / 100.0;
+		
+		return intValue2 + decimalFinal;
+	}
 }
