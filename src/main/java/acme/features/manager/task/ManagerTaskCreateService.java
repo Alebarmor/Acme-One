@@ -73,16 +73,15 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		
-		if (!errors.hasErrors("endTime")) {
+
+		if (!errors.hasErrors("endTime") && entity.getStartTime() != null) {
 			errors.state(request, entity.getEndTime().after(entity.getStartTime()), "endTime", "manager.task.form.error.isBefore");	
 		}
 		
-		if (!errors.hasErrors("workload") && !errors.hasErrors("endTime") && !errors.hasErrors("startTime") ) {
+		if (!errors.hasErrors("workload") && !errors.hasErrors("endTime") && !errors.hasErrors("startTime") && entity.getStartTime() != null) {
 			final Double workload = entity.getWorkload();
 			final BigDecimal bigDecimal = new BigDecimal(String.valueOf(workload));
-			
+
 			final int intValue = bigDecimal.intValue();
 			final double decimalPart = bigDecimal.subtract(new BigDecimal(intValue)).doubleValue();
 			final double unityPart = intValue - decimalPart;
