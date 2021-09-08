@@ -15,6 +15,7 @@ package acme.features.administrator.dashboard;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -138,14 +139,21 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 		
 		deviationWorkload = Math.sqrt(stddev/wl.size());
-		minimumWorkload = wl.stream().min(Comparator.naturalOrder()).get();
-		maximumWorkload = wl.stream().max(Comparator.naturalOrder()).get();
+		final Optional<Double> minW = wl.stream().min(Comparator.naturalOrder());
+		final Optional<Double> maxW = wl.stream().max(Comparator.naturalOrder());
+		
+		if(minW.isPresent()) {
+			minimumWorkload = minW.get();
+			result.setMinimumWorkload(minimumWorkload);
+		}
+		if(maxW.isPresent()) {
+			maximumWorkload = maxW.get();
+			result.setMaximumWorkload(maximumWorkload);
+		}
 		
 		result.setAverageWorkload(averageWorkload);
 		result.setDeviationWorkload(deviationWorkload);
-		result.setMaximumWorkload(maximumWorkload);
-		result.setMinimumWorkload(minimumWorkload);
-
+		
 		// ------------------- Execution Period Stats -----------------------
 
 		final Double averageExecutionPeriod;
@@ -172,14 +180,21 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 
 		deviationExecutionPeriod = Math.sqrt(stddev / days.size());
-		minimumExecutionPeriod = days.stream().min(Comparator.naturalOrder()).get();
-		maximumExecutionPeriod = days.stream().max(Comparator.naturalOrder()).get();
-
+		final Optional<Double> minE = days.stream().min(Comparator.naturalOrder());
+		final Optional<Double> maxE = days.stream().max(Comparator.naturalOrder());
+		
+		if(minE.isPresent()) {
+			minimumExecutionPeriod = minE.get();
+			result.setMinimumExecutionPeriod(minimumExecutionPeriod);
+		}
+		if(maxE.isPresent()) {
+			maximumExecutionPeriod = maxE.get();
+			result.setMaximumExecutionPeriod(maximumExecutionPeriod);
+		}
+		
 		result.setAverageExecutionPeriod(averageExecutionPeriod);
 		result.setDeviationExecutionPeriod(deviationExecutionPeriod);
-		result.setMinimumExecutionPeriod(minimumExecutionPeriod);
-		result.setMaximumExecutionPeriod(maximumExecutionPeriod);
-	
+		
 		return result;
 	}
 	
