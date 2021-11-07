@@ -61,9 +61,6 @@ public class AdministratorConfigurationUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-	    
-//		moreOrLess = (entity.getThreshold() < 0.0) || (entity.getThreshold() > 1.0);
-//		errors.state(request, !moreOrLess, "threshold", "administrator.configuration.error.more-or-less");
 
 	}
 

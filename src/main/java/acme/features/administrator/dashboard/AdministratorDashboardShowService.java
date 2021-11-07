@@ -12,6 +12,7 @@
 
 package acme.features.administrator.dashboard;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.tasks.Task;
+import acme.entities.duties.Duty;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -44,6 +45,24 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		return true;
 	}
+	
+	private double getAverage(final double original) {
+		
+		final BigDecimal bigDecimal2 = new BigDecimal(String.valueOf(original));
+		
+		final int intValue2 = bigDecimal2.intValue();
+		final double decimalPart2 = bigDecimal2.subtract(new BigDecimal(intValue2)).doubleValue();
+		
+		final int decimalInt = (int) (decimalPart2 * 100);
+		
+		final double decimalFinal = (decimalInt % 60.0) / 100.0;
+		
+		final int enteraSumaFinal = (int) (decimalInt - decimalFinal*100) / 60;
+		
+		final double enteraFinal = (double) intValue2 + (double) enteraSumaFinal;
+		
+		return enteraFinal + decimalFinal;
+	}
 
 	@Override
 	public void unbind(final Request<Dashboard> request, final Dashboard entity, final Model model) {
@@ -53,19 +72,19 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, //
 			"averageNumberOfJobsPerEmployer", "averageNumberOfApplicationsPerWorker", // 
-			"avegageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
+			"averageNumberOfApplicationsPerEmployer", "ratioOfPendingApplications", //
 			"ratioOfRejectedApplications", "ratioOfAcceptedApplications", //
-			"numberOfTasksPublic", "numberOfTasksPrivate", "numberOfTasksFinished", //
-			"numberOfTasksUnfinished", "averageWorkload", "deviationWorkload", //
+			"numberOfDutiesPublic", "numberOfDutiesPrivate", "numberOfDutiesFinished", //
+			"numberOfDutiesUnfinished", "averageWorkload", "deviationWorkload", //
 			"maximumWorkload", "minimumWorkload", "averageExecutionPeriod", //
 			"deviationExecutionPeriod", "maximumExecutionPeriod", "minimumExecutionPeriod", //
-			"numberOfWorkPlans",
-			"numberOfWorkPlansPublic", "numberOfWorkPlansPrivate", "numberOfWorkPlansFinished", 
-			"numberOfWorkPlansUnfinished", //
-			"averageWorkPlansExecutionPeriod", "deviationWorkPlansExecutionPeriod",
-			"maximumWorkPlansExecutionPeriod","minimumWorkPlansExecutionPeriod", //
-			"averageWorkPlansWorkload",  "deviationWorkPlansWorkload",
-			"maximumWorkPlansWorkload", "minimumWorkPlansWorkload");
+			"numberOfEndeavours",
+			"numberOfEndeavoursPublic", "numberOfEndeavoursPrivate", "numberOfEndeavoursFinished", 
+			"numberOfEndeavoursUnfinished", //
+			"averageEndeavoursExecutionPeriod", "deviationEndeavoursExecutionPeriod",
+			"maximumEndeavoursExecutionPeriod","minimumEndeavoursExecutionPeriod", //
+			"averageEndeavoursWorkload",  "deviationEndeavoursWorkload",
+			"maximumEndeavoursWorkload", "minimumEndeavoursWorkload");
 	}
 
 	@Override
@@ -88,31 +107,31 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		ratioOfRejectedApplications = this.repository.ratioOfRejectedApplications();
 		
 		result = new Dashboard();
-		result.setAvegageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
+		result.setAverageNumberOfApplicationsPerEmployer(averageNumberOfApplicationsPerEmployer);
 		result.setAverageNumberOfApplicationsPerWorker(averageNumberOfApplicationsPerWorker);
 		result.setAverageNumberOfJobsPerEmployer(averageNumberOfJobsPerEmployer);
 		result.setRatioOfPendingApplications(ratioOfPendingApplications);
 		result.setRatioOfAcceptedApplications(ratioOfAcceptedApplications);
 		result.setRatioOfRejectedApplications(ratioOfRejectedApplications);
 		
-		// ------------------- Task -----------------------
+		// ------------------- Duty -----------------------
 		
-		final Integer numberOfTasksPublic;
-		final Integer numberOfTasksPrivate;
-		final Integer numberOfTasksFinished;
-		final Integer numberOfTasksUnfinished;
+		final Integer numberOfDutiesPublic;
+		final Integer numberOfDutiesPrivate;
+		final Integer numberOfDutiesFinished;
+		final Integer numberOfDutiesUnfinished;
 		
-		numberOfTasksPublic = this.repository.numberOfTasksPublic();
-		numberOfTasksPrivate = this.repository.numberOfTasksPrivate();
-		numberOfTasksFinished = this.repository.numberOfTasksFinished();
-		numberOfTasksUnfinished = this.repository.numberOfTasksUnfinished();
+		numberOfDutiesPublic = this.repository.numberOfDutiesPublic();
+		numberOfDutiesPrivate = this.repository.numberOfDutiesPrivate();
+		numberOfDutiesFinished = this.repository.numberOfDutiesFinished();
+		numberOfDutiesUnfinished = this.repository.numberOfDutiesUnfinished();
 		
-		result.setNumberOfTasksPublic(numberOfTasksPublic);
-		result.setNumberOfTasksPrivate(numberOfTasksPrivate);
-		result.setNumberOfTasksFinished(numberOfTasksFinished);
-		result.setNumberOfTasksUnfinished(numberOfTasksUnfinished);
+		result.setNumberOfDutiesPublic(numberOfDutiesPublic);
+		result.setNumberOfDutiesPrivate(numberOfDutiesPrivate);
+		result.setNumberOfDutiesFinished(numberOfDutiesFinished);
+		result.setNumberOfDutiesUnfinished(numberOfDutiesUnfinished);
 		
-		// ------------------- Task Stats -----------------------
+		// ------------------- Duty Stats -----------------------
 		
 		final Double averageWorkload;
 		final Double deviationWorkload;
@@ -121,7 +140,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		final List<Double> wl = new ArrayList<Double>();;
 		
-		for(final Task t : this.repository.findMany()) {
+		for(final Duty t : this.repository.findMany()) {
 			wl.add(t.getWorkload());
 		}
 		
@@ -132,28 +151,32 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			n += d;
 		}
 		
-		averageWorkload = n/wl.size();
+		averageWorkload = this.getAverage(n/wl.size());
 		
 		for(final double d : wl) {
 			stddev += Math.pow(d - averageWorkload, 2);
 		}
 		
 		deviationWorkload = Math.sqrt(stddev/wl.size());
-		final Optional<Double> minW = wl.stream().min(Comparator.naturalOrder());
-		final Optional<Double> maxW = wl.stream().max(Comparator.naturalOrder());
-		
-		if(minW.isPresent()) {
-			minimumWorkload = minW.get();
-			result.setMinimumWorkload(minimumWorkload);
+		final Optional<Double>  minimumWorkloadOp = wl.stream().min(Comparator.naturalOrder());
+		final Optional<Double> maximumWorkloadOp = wl.stream().max(Comparator.naturalOrder());
+		if(minimumWorkloadOp.isPresent()) {
+			minimumWorkload = minimumWorkloadOp.get();
+		}else {
+			minimumWorkload = 0.0;
 		}
-		if(maxW.isPresent()) {
-			maximumWorkload = maxW.get();
-			result.setMaximumWorkload(maximumWorkload);
+		
+		if(maximumWorkloadOp.isPresent()) {
+			maximumWorkload = maximumWorkloadOp.get();
+		}else {
+			maximumWorkload = 0.0;
 		}
 		
 		result.setAverageWorkload(averageWorkload);
 		result.setDeviationWorkload(deviationWorkload);
-		
+		result.setMaximumWorkload(maximumWorkload);
+		result.setMinimumWorkload(minimumWorkload);
+
 		// ------------------- Execution Period Stats -----------------------
 
 		final Double averageExecutionPeriod;
@@ -163,7 +186,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		final List<Double> days = new ArrayList<Double>();
 
-		for (final Task t : this.repository.findMany()) {
+		for (final Duty t : this.repository.findMany()) {
 			days.add(t.getDays());
 		}
 
@@ -180,21 +203,26 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		}
 
 		deviationExecutionPeriod = Math.sqrt(stddev / days.size());
-		final Optional<Double> minE = days.stream().min(Comparator.naturalOrder());
-		final Optional<Double> maxE = days.stream().max(Comparator.naturalOrder());
-		
-		if(minE.isPresent()) {
-			minimumExecutionPeriod = minE.get();
-			result.setMinimumExecutionPeriod(minimumExecutionPeriod);
+		final Optional<Double> minimumExecutionPeriodOp = days.stream().min(Comparator.naturalOrder());
+		final Optional<Double> maximumExecutionPeriodOp = days.stream().max(Comparator.naturalOrder());
+
+		if(minimumExecutionPeriodOp.isPresent()) {
+			minimumExecutionPeriod = minimumExecutionPeriodOp.get();
+		}else {
+			minimumExecutionPeriod = 0.0;
 		}
-		if(maxE.isPresent()) {
-			maximumExecutionPeriod = maxE.get();
-			result.setMaximumExecutionPeriod(maximumExecutionPeriod);
+		
+		if(maximumExecutionPeriodOp.isPresent()) {
+			maximumExecutionPeriod = maximumExecutionPeriodOp.get();
+		}else {
+			maximumExecutionPeriod = 0.0;
 		}
 		
 		result.setAverageExecutionPeriod(averageExecutionPeriod);
 		result.setDeviationExecutionPeriod(deviationExecutionPeriod);
-		
+		result.setMinimumExecutionPeriod(minimumExecutionPeriod);
+		result.setMaximumExecutionPeriod(maximumExecutionPeriod);
+	
 		return result;
 	}
 	
