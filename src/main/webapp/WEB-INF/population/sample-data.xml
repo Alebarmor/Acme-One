@@ -80,7 +80,7 @@
 		<property name="moment" value="2021/03/02 09:00"/>
 		<property name="status" value="IMPORTANT"/>
 		<property name="text" value="You may now benefit from our great volume discount!"/>
-		<property name="info" value="http://www.acme-endeavour.com/discount"/>
+		<property name="info" value="http://www.acme-one.com/discount"/>
 	</bean>
 		
 	<bean id="announcement05" class="acme.entities.announcements.Announcement">

@@ -6,8 +6,8 @@
    "deploy": {
         "container": "TOMCAT8",
         "war": [{
-            "file": "target/Acme-Endeavour-21.2.war",
-            "context": "/Acme-Endeavour",
+            "file": "target/Acme-One-21.2.war",
+            "context": "/Acme-One",
             "port": 443
         }]
     }
